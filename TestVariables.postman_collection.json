@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "fc8e5732-5a26-4b3d-b93b-685762cdf960",
+		"name": "TestVariables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26939198",
+		"_collection_link": "https://martian-water-525950.postman.co/workspace/My-Workspace~a69a220d-9948-4709-86a1-fe19cd990599/collection/26939198-fc8e5732-5a26-4b3d-b93b-685762cdf960?action=share&creator=26939198&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "LIST USERS",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"url\",\"https://reqres.in/api/unknown/2\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckingVarialbes scope",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//pm.variables.set(\"url\",\"https://reqres.in/api/unknown/2\")\r",
+							"\r",
+							"//pm.globals.set(\"url\",\"Global user\")\r",
+							"pm.environment.set(\"user name\", \"Env user\")\r",
+							"\r",
+							"console.log(pm.globals.get(\"url\"))\r",
+							"//pm.collectionVariables.set(\"url\",\"url\")\r",
+							"//pm.variables.set(\"url\",\"https://reqres.in/api/users?page=2\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.globals.set(\"url\",\"Top secret\")\r",
+							"// pm.environment.unset(\"user name\")\r",
+							"// pm.collectionVariables.unset(\"user name\")\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
